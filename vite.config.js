@@ -6,7 +6,7 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/portfolio/", // IMPORTANT: Change this if your repo name is not "portfolio"
+  base: "/", // Changed back to "/" for local dev. Update this ONLY when pushing to GitHub.
   resolve: {
     alias: {
       "@": path.resolve(__dirname, './src'),
