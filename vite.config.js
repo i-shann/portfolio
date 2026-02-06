@@ -4,12 +4,16 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  base: "/", // Changed back to "/" for local dev. Update this ONLY when pushing to GitHub.
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, './src'),
+export default defineConfig(({ command }) => {
+  const config = {
+    plugins: [react(), tailwindcss()],
+    base: command === 'serve' ? '/' : '/portfolio/',
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, './src'),
+      }
     }
-  }
+  };
+
+  return config;
 })
